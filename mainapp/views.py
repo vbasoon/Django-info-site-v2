@@ -12,20 +12,27 @@ import calendar
 from calendar import HTMLCalendar, TextCalendar, LocaleHTMLCalendar
 from datetime import datetime
 
-from mainapp.models import News
-
-
+from .models import News
+from .utils import *
+from .forms import *
 # from .models import *
-# from .forms import *
-# from .utils import *
+#
+#
 
 
 class NewsHome(DataMixin, ListView):
     # paginate_by = 3
     model = News
-    template_name = 'mainapp/index.html'
+    template_name = 'mainapp/base.html'
     context_object_name = 'posts'
     # extra_context = {'title': 'Головна сторінка'}
+
+# class NewsHome(DataMixin, ListView):
+#     # paginate_by = 3
+#     model = News
+#     template_name = 'mainapp/index.html'
+#     context_object_name = 'posts'
+#     # extra_context = {'title': 'Головна сторінка'}
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
