@@ -23,7 +23,7 @@ from .forms import *
 class NewsHome(DataMixin, ListView):
     # paginate_by = 3
     model = News
-    template_name = 'mainapp/base.html'
+    template_name = 'base.html'
     context_object_name = 'posts'
     # extra_context = {'title': 'Головна сторінка'}
 

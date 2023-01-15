@@ -1,11 +1,39 @@
 <!DOCTYPE html>
+{% load static %}
+
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" >
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'mainapp/images/main.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
 </head>
+
 <body>
+<div class="wrapper">
+    {% block content %}
+        <header>header</header>
+        <main class="main">
+            <h1>Content</h1>
+        </main>
+        <footer>footer</footer>
+    {% endblock %}
+</div>
 
+<script>
+    document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+        // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement( 'a' );
 
+        anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
+        anchor.className = 'embedly-card';
+
+        element.appendChild( anchor );
+    } );
+</script>
 </body>
 </html>
